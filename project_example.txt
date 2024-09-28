@@ -1,0 +1,13 @@
+#Esse projeto se trata de um código em assembly RISCV de uma função com capacidade de reuso para a leitura dos 4 bits menos significativos de 1 byte de dados
+
+addi x1, zero, 5 #carrega um valor no registrador 1
+jal x2, set4b #salta para a função 'set4b'
+beq x0, x0, done #finaliza a aplicação/continua o código
+
+set4b:
+andi x3, x1, 15 #ler os 4 bits menos significativos contidos no registrador
+ori x3, x3, 0xF0 #setar os 4 bits mais significativos como 1, indicando leitura
+jr x2 #retorna ao código com o valor salvo no registrador x3
+
+done:
+add x1, zero, zero #código finalizante

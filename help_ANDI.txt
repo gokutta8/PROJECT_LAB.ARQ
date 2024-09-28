@@ -1,0 +1,13 @@
+Instrução: 'ANDI' - TIPO I - op 001 0011 - funct3 111 - funct 7 - .
+
+Descrição de funcionalidade: Realiza uma função lógica AND entre um imediato e o valor contido em um registrador e salva em um registrador.
+
+Passo a passo do uso:
+	andi rd, rs1, imm : 
+
+	1 - Chame a instrução em assembly 'andi'; 
+	2 - Informe o registrador 'rd' o qual será direcionado o valor da operação lógica AND;
+	3 - Informe o registrador 'rs1' o qual participará como primeiro componente da AND;
+	4 - Informe o valor do imediato 'imm' o qual será utilizado para a realização da AND com o registrador.
+
+Exemplo: andi x2, x1, 3 (x1 & 3 = x2)

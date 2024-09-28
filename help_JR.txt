@@ -1,0 +1,11 @@
+Instrução: 'JR' - TIPO I - op 110 0111 - funct3 000 - funct 7 - .
+
+Descrição de funcionalidade: Saltar/Desvio para um endereço contido em um registrador em específico.
+
+Passo a passo do uso:
+	jr rd : 
+
+	1 - Chame a instrução em assembly 'jr'; 
+	2 - Informe o registrador contendo o valor para onde o PC deverá saltar PC = 'rd';
+
+Exemplo: jr x2 (x2 = PC)

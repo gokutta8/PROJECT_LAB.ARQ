@@ -1,0 +1,12 @@
+Instrução: 'JAL' - TIPO J - op 110 1111 - funct3 - funct 7 - .
+
+Descrição de funcionalidade: Saltar/Desvio para um endereço em específico e salva o endereço da próxima linha em um registrador determinado.
+
+Passo a passo do uso:
+	jal rd, label : 
+
+	1 - Chame a instrução em assembly 'jal'; 
+	2 - Informe o registrador para armazenar o endereço da próxima linha de código em 'rd';
+	3 - Em 'label' irá conter o local para onde o 	PC irá saltar, com PC + Imediato, onde o imediato estará abstraído no label.
+
+Exemplo: jal x2, func (x2 = PC + 4; func = PC + IMM)
