@@ -1,0 +1,57 @@
+module register_8bits(input clk, we3, rst,
+		      input [3:0]wa3, ra1, ra2, 
+		      input [7:0]wd3,
+		      output reg[7:0]rd1, rd2);
+	reg [7:0] registers[7:0];
+	integer flip;
+	
+
+	always @ (posedge clk or negedge rst)
+	begin
+		if (~rst)
+		begin
+			for(flip=0; flip<8; flip = flip + 1)	
+			registers[flip] <= 0;
+		end
+
+		else if (we3)
+		begin
+			case(wa3)
+			1: registers[1] <= wd3;
+			2: registers[2] <= wd3;
+			3: registers[3] <= wd3;
+			4: registers[4] <= wd3;
+			5: registers[5] <= wd3;
+			6: registers[6] <= wd3;
+			7: registers[7] <= wd3;
+			default: registers[wa3] <= 8'h0;
+			endcase
+		end
+	end
+
+	always @ (*)
+	begin
+		case(ra1)
+			0: rd1 <= registers[0];
+			1: rd1 <= registers[1];
+			2: rd1 <= registers[2];
+			3: rd1 <= registers[3];
+			4: rd1 <= registers[4];
+			5: rd1 <= registers[5];
+			6: rd1 <= registers[6];
+			7: rd1 <= registers[7];
+			default: rd1 <= 8'hxx;
+			endcase
+		case(ra2)
+			0: rd2 <= registers[0];
+			1: rd2 <= registers[1];
+			2: rd2 <= registers[2];
+			3: rd2 <= registers[3];
+			4: rd2 <= registers[4];
+			5: rd2 <= registers[5];
+			6: rd2 <= registers[6];
+			7: rd2 <= registers[7];
+			default: rd2 <= 8'hxx;
+			endcase
+	end
+endmodule

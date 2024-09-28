@@ -1,0 +1,17 @@
+module RegisterPC(input clk, rst,
+		  input [7:0]PCin,
+		  output reg[7:0]PC);
+
+	reg [7:0]registers;
+	
+	always @ (posedge clk or negedge rst)begin
+		if (~rst)
+			registers <= 0;
+		
+		else
+			registers <= PCin;
+	end
+	
+	assign PC = registers;
+	
+endmodule
