@@ -1,4 +1,4 @@
-////////MODULE: PROJETO PROCESSADOR RISC-V EM MICROARQUITETURA CICLO ÚNICO////////
+########MODULE: PROJETO PROCESSADOR RISC-V EM MICROARQUITETURA CICLO ÚNICO########
 
 Este projeto contém o trabalho feito na linguagem de hardware System Verilog utilizando o software QUARTUS II da construção de uma microarquitetura de processador de Ciclo único para RISC-V, contem algumas instruções comumente utilizadas para a área. É feito o suporte para utilização nas placas FPGA, especificamente, no qual é enviado juntamente arquivos auxiliares para facilitar a utilização da placa, porém é possível utilizar para simulações, sem a presença da placa física, em testbenchs online. 
 
