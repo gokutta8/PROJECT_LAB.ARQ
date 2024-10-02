@@ -33,5 +33,7 @@ Este projeto contém o trabalho feito na linguagem de hardware System Verilog ut
 -->Utilização:
 	Para o trabalho com esse projeto, será necessário incialmente criar o programa em Assembly RISC-V e convertê-lo para linhas de código de máquina. Posteriormente adicionar cada linha ao decodificador de "Instruction Memory", em um decodificador de linha de PC, definindo em qual endereço de PC a instrução já convertida irá acontecer. Poderá utilizar qualquer uma das funções suportadas pela arquitetura e realizar seus projetos.
 
+Especificação dos arquivos anexados: Arq-aux: arquivos auxiliares para a placa FPGA; FPGA_execute: arquivos extras para execução na placa; MOD_RISCV: todos os arquivos dos códigos em System Verilog; new_instructions: arquivos de ajuda para explicar novas instruções implementadas e o exemplo base contido na simulação.
+
 //endmodule
 	
