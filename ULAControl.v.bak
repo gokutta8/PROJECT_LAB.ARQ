@@ -1,0 +1,85 @@
+module UndeControl(input [6:0]op, func7, 
+		input [2:0]func3, 
+		output reg[2:0]ULAControl, 
+		output reg ULASrc, RegWrite);
+
+	always @ (*)
+	begin
+	
+		case (op)
+		7'b0110011:begin
+			if(func7 == 7'b0000000)begin
+				case(func3)
+				3'b000:begin
+					RegWrite <=1;
+					ULAControl <= 000;
+					ULASrc <= 0;
+				end
+				3'b111:begin
+					RegWrite <=1;
+					ULAControl <= 010;
+					ULASrc <= 0;
+				end
+				3'b110:begin
+					RegWrite <=1;
+					ULAControl <= 011;
+					ULASrc <= 0;
+				end
+				3'b010:begin
+					RegWrite <=1;
+					ULAControl <= 101;
+					ULASrc <= 0;
+				end
+				default:begin 
+					RegWrite <= 0;
+					ULAControl <= 3'bxxx;
+					ULASrc <= 1'bx;
+				end
+				endcase
+			end
+
+			if(func7 == 7'b0100000)begin
+				case(func3)
+				3'b000:begin
+					RegWrite <=1;
+					ULAControl <= 001;
+					ULASrc <= 0;
+				end
+				default:begin 
+					RegWrite <= 0;
+					ULAControl <= 3'bxxx;
+					ULASrc <= 1'bx;
+				end
+				endcase
+			end
+			
+			else begin
+				RegWrite <= 0;
+				ULAControl <= 3'bxxx;
+				ULASrc <= 1'bx
+			end
+		end	
+
+		7'b0010011:begin
+			case(func3)
+			3'b000:begin
+				RegWrite <=1;
+				ULAControl <= 000;
+				ULASrc <= 1;
+			end
+			default:begin 
+				RegWrite <= 0;
+				ULAControl <= 3'bxxx;
+				ULASrc <= 1'bx;
+			end
+			endcase	
+		end
+		
+		default:begin 
+			RegWrite <= 0;
+			ULAControl <= 3'bxxx;
+			ULASrc <= 1'bx;
+		end
+		endcase
+	end
+endmodule

@@ -1,0 +1,49 @@
+module UndeControl(input [6:0]op, func7, 
+		input [2:0]func3, 
+		output reg[2:0]ULAControl, 
+		output reg ULASrc, RegWrite);
+
+	wire [16:0]IN_unControl;
+	assign IN_unControl = {op,func3,func7};
+
+	always @ (*)
+	begin
+		casex (IN_unControl)
+		17'b01100110000000000:begin
+			RegWrite = 1;
+			ULASrc = 0;
+			ULAControl = 3'b000;
+		end
+		17'b01100110000100000:begin
+			RegWrite = 1;
+			ULASrc = 0;
+			ULAControl = 3'b001; 
+		end
+		17'b01100111110000000:begin
+			RegWrite = 1;
+			ULASrc = 0;
+			ULAControl = 3'b010;
+		end
+		17'b01100111100000000:begin
+			RegWrite = 1;
+			ULASrc = 0;
+			ULAControl = 3'b011;
+		end
+		17'b01100110100000000:begin
+			RegWrite = 1;
+			ULASrc = 0;
+			ULAControl =  3'b101;
+		end
+		17'b0010011000xxxxxxx:begin
+			RegWrite = 1;
+			ULASrc = 1;
+			ULAControl =  3'b000;
+		end
+		default:begin
+			RegWrite = 0;
+			ULASrc = 0;
+			ULAControl =  3'b000;
+		end
+		endcase
+	end
+endmodule

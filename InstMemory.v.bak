@@ -1,0 +1,14 @@
+module InstMemory(input [7:0]Adress, 
+		output reg [31:0]CodMaquina);
+
+	case (Adress)
+	8'h00: CodMaquina = 32'h00300093;
+	8'h04: CodMaquina = 32'h00900113;
+	8'h08: CodMaquina = 32'h00208133;
+	8'h0C: CodMaquina = 32'h0020f1b3;
+	8'h10: CodMaquina = 32'h0020e233;
+	8'h14: CodMaquina = 32'h0041a2b3;
+	8'h18: CodMaquina = 32'h40520333;
+	defaut: CodMaquina = 32'hxxxxxxxx;
+	endcase
+endmodule
